@@ -8,14 +8,27 @@ public class Lab3 {
     private static final float DefaultR = 5f;
     public static void main(String[] args) throws IOException {
 
-        System.out.printf("Введите R: [%.0f] ", DefaultR);
-        String str = System.console().readLine();
-        float R;
-        if(str.isEmpty()) {
-            R = DefaultR;
-        } else {
-            R = new Float(str);
-        }
+        float R = 0;
+        boolean done = false;
+        do {
+            System.out.printf("Введите R: [%.0f] ", DefaultR);
+            String str = System.console().readLine();
+            if(str.isEmpty()) {
+                R = DefaultR;
+                done = true;
+            } else {
+                try {
+                    R = new Float(str);
+                    if(R > 0) {
+                        done = true;
+                    } else {
+                        System.out.println("Некорректное значение! Ожидается ввод вещественного положительного числа");
+                    }
+                } catch(Exception E) {
+                    System.out.println("Некорректное значение! Ожидается ввод вещественного положительного числа");
+                }
+            }
+        } while(!done);
 
         Form S = new Form(R);
 
@@ -34,7 +47,7 @@ public class Lab3 {
 
         do {
             Vertex current = iterator.next();
-            if(S.Contains(current) == 1) {
+            if(S.contains(current) == 1) {
                 System.out.printf("%.0f, %.0f%n", current.X, current.Y);
             }
         } while(iterator.hasNext());

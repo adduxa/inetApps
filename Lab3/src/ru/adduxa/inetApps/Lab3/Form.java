@@ -7,7 +7,7 @@ public class Form {
         R = r;
     }
 
-    public int Contains(Vertex vertex) {
+    public int contains(Vertex vertex) {
         return vertex.X >= -R && vertex.X <= R / 2 && vertex.Y <= upper(vertex.X) && vertex.Y >= lower(vertex.X) ? 1 : 0;
     }
 
