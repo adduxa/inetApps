@@ -1,3 +1,4 @@
+//Вариант 2013
 package ru.adduxa.inetApps.Lab3;
 
 import java.io.IOException;
