@@ -33,7 +33,7 @@ public class Lab3 {
 
         Form S = new Form(R);
 
-        Vector<Vertex> test = new Vector<>();
+        Vector test = new Vector();
         test.add(new Vertex(1, 1));
         test.add(new Vertex(0, 0));
         test.add(new Vertex(2, 0));
@@ -44,10 +44,10 @@ public class Lab3 {
         test.add(new Vertex(2, 0));
         test.add(new Vertex(-3, -1));
 
-        ListIterator<Vertex> iterator = test.listIterator();
+        ListIterator iterator = test.listIterator();
 
         do {
-            Vertex current = iterator.next();
+            Vertex current = (Vertex)iterator.next();
             if(S.contains(current) == 1) {
                 System.out.printf("%.0f, %.0f%n", current.X, current.Y);
             }
