@@ -1,5 +1,5 @@
 /** Класс для приветствия */
-public class Hello {
+class Hello {
 	private String name;
 	private int count;
 	

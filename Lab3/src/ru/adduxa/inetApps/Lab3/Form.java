@@ -1,7 +1,7 @@
 package ru.adduxa.inetApps.Lab3;
 
-public class Form {
-    private float R;
+class Form {
+    private final float R;
 
     public Form(float r) {
         R = r;

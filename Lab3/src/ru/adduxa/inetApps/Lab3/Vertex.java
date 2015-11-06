@@ -1,8 +1,8 @@
 package ru.adduxa.inetApps.Lab3;
 
-public class Vertex {
-    public double X;
-    public double Y;
+class Vertex {
+    public final double X;
+    public final double Y;
 
     public Vertex(double x, double y) {
         X = x;
