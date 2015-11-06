@@ -1,8 +1,25 @@
+/**
+ * Университет ИТМО
+ * Кафедра вычислительной техники
+ * Вычислительная математика
+ *
+ * Лабораторная работа №4
+ * Графический интерфейс на базе Swing API в Java
+ * Вариант: 2014
+ *
+ * Выполнил:
+ * студент II курса факультета КТиУ
+ * Дьяков Андрей Александрович, группа P3200
+ *
+ * Преподаватель:
+ * Гаврилов Антон Валерьевич
+ *
+ * Санкт-Петербург, 2015г.
+ */
+
 package ru.adduxa.inetApps.Lab4;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
