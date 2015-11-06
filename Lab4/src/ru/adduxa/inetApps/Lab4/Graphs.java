@@ -43,7 +43,7 @@ class Graphs extends JPanel {
         }
     }
 
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
         g.setColor(new Color(253,255, 177));
         g.fillRect(0, 0, super.getWidth(), super.getHeight());
 
