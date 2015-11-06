@@ -23,7 +23,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.*;
+import java.util.ArrayList;
 
 public class Lab4 implements Runnable {
     @Override
@@ -59,27 +59,27 @@ public class Lab4 implements Runnable {
         JLabel rLabel = new JLabel("R: ");
         toolbarPanel.add(rLabel);
 
-        JSpinner rSpinner = new JSpinner();
-        rSpinner.setValue(2);
-
+        JSpinner rSpinner = new JSpinner(new SpinnerNumberModel(2, 0.1, 100, 0.1));
         toolbarPanel.add(rSpinner);
+
+        JButton setButton = new JButton("Добавить");
+        toolbarPanel.add(setButton);
 
         panel.add(toolbarPanel, BorderLayout.NORTH);
 
         //Creating graph
-        Form f = new Form((float)(int)rSpinner.getValue());
+        Form f = new Form((float)(double)rSpinner.getValue());
         Graphs graphPanel = new Graphs(f);
         graphPanel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                yItems.forEach(y -> {
-                    if(y.isSelected()) {
-                        Vertex ver = new Vertex((Double)x.getSelectedItem(), Double.valueOf(y.getText()));
-                        graphPanel.addVertex(ver);
-                        VertexThread vt = new VertexThread(ver, graphPanel);
-                        vt.start();
-                    }
-                });
+                Point click = e.getPoint();
+                Vertex ver = graphPanel.clickToVertex(click);
+                graphPanel.addVertex(ver);
+                if(f.contains(ver) == 1) {
+                    VertexThread vt = new VertexThread(ver, graphPanel);
+                    vt.start();
+                }
             }
 
             @Override
@@ -104,7 +104,18 @@ public class Lab4 implements Runnable {
         });
         panel.add(graphPanel, BorderLayout.CENTER);
 
-        rSpinner.addChangeListener(e -> graphPanel.setR((float)(int)rSpinner.getValue()));
+        //Adding listeners
+        rSpinner.addChangeListener(e -> graphPanel.setR((float)(double)rSpinner.getValue()));
+        setButton.addActionListener(e -> yItems.forEach(y -> {
+            if(y.isSelected()) {
+                Vertex ver = new Vertex((Double)x.getSelectedItem(), Double.valueOf(y.getText()));
+                graphPanel.addVertex(ver);
+                if(f.contains(ver) == 1) {
+                    VertexThread vt = new VertexThread(ver, graphPanel);
+                    vt.start();
+                }
+            }
+        }));
 
         //Configuring frame
         frame.getContentPane().add(panel);

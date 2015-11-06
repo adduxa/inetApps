@@ -116,4 +116,8 @@ class Graphs extends JPanel {
         }
         repaint();
     }
+
+    public Vertex clickToVertex(Point click) {
+        return new Vertex((click.getX() - xCenter)/formScale,(click.getY() - xCenter)/-formScale);
+    }
 }
