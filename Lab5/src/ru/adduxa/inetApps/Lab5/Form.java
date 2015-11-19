@@ -7,7 +7,7 @@ public class Form {
 
     public Form(float r) {
         R = r;
-        lowerLimit = -R;
+        lowerLimit = -R/2;
         upperLimit = R;
     }
 
