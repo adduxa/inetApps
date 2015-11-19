@@ -16,15 +16,20 @@ public class Form {
     }
 
     public double upper(double x) {
-        if (x <= 0) return Math.sqrt(Math.pow(R, 2) - Math.pow(x, 2));
-        else return R/2;
-    }
-    public double lower(double x) {
         if (x < 0) {
             return 0;
-        } else if(x <= R/2){
-            return 2 * x - R;
-        } else return 0;
+        } else if(x <= R/2) {
+            return -2 * x + R;
+        } else {
+            return 0;
+        }
+    }
+    public double lower(double x) {
+        if (x <= 0) {
+            return -R;
+        } else {
+            return -Math.sqrt(Math.pow(R, 2) - Math.pow(x, 2));
+        }
     }
 
     public double getLowerLimit() {
