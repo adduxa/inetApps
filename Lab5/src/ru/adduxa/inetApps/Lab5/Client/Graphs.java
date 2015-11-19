@@ -11,7 +11,6 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
-@SuppressWarnings("Duplicates")
 class Graphs extends JPanel {
     private Form form;
     private final int xSize = 300;
