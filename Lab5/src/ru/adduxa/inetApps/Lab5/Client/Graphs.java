@@ -62,7 +62,7 @@ class Graphs extends JPanel {
             g.fillOval(graphToPixelsX(vertex.getX()) - 3, graphToPixelsY(vertex.getY()) - 3, 7, 7);
 
             g.setColor(new Color(0, 0, 0, vertex.getAlpha()));
-            g.drawString(String.format("%.0f, %.0f%n", vertex.getX(), vertex.getY()), graphToPixelsX(vertex.getX()) + 5, graphToPixelsY(vertex.getY()));
+            g.drawString(String.format("%.1f; %.1f%n", vertex.getX(), vertex.getY()), graphToPixelsX(vertex.getX()) + 5, graphToPixelsY(vertex.getY()));
         });
 
         g.setColor(new Color(0, 0, 0, 255));
