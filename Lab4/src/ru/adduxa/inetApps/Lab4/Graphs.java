@@ -92,7 +92,8 @@ class Graphs extends JPanel {
     }
 
     public void setR(float r) {
-        form = new Form(r);double lowerLimit = form.getLowerLimit();
+        form = new Form(r);
+        double lowerLimit = form.getLowerLimit();
         double upperLimit = form.getUpperLimit();
         double maxLimit = Math.max(Math.abs(lowerLimit), Math.abs(upperLimit));
         formScale = graphScale*xSize/2/maxLimit;
