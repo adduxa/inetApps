@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/Lab5/src/ru/adduxa/inetApps/Lab5/locale.properties" />
+    <file url="file://$PROJECT_DIR$/Lab5/src/ru/adduxa/inetApps/Lab5/locale_pt_BR.properties" />
+    <file url="file://$PROJECT_DIR$/Lab5/src/ru/adduxa/inetApps/Lab5/locale_ru_RU.properties" />
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/Lab5/src/ru/adduxa/inetApps/Lab5/locale.properties" />
+      <file value="file://$PROJECT_DIR$/Lab5/src/ru/adduxa/inetApps/Lab5/locale_pt_BR.properties" />
+      <file value="file://$PROJECT_DIR$/Lab5/src/ru/adduxa/inetApps/Lab5/locale_ru_RU.properties" />
+      <base-name>locale</base-name>
+    </custom-resource-bundle>
+  </component>
+</project>
