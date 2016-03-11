@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab6</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script>
+		function button_input(button) {
+			var field = document.getElementById('x_input');
+			field.value = button.value;
+		}
+	</script>
+</head>
+<body>
+	<div id="header">
+	Дьяков Андрей Александрович, P3200<br>
+	Вариант: 3001
+	</div>
+	<form action="match.php" method="GET">
+		<table id="form">
+		<tr><td colspan="2">
+				<img src="images/graph.png">
+		<tr><td rowspan="2">
+				<span>X:</span>
+				<input type="text" name="x" id="x_input" placeholder="Выберите X:" readonly>
+				<br>
+				<input type="button" value="-4" onclick="button_input(this);">
+				<input type="button" value="-3" onclick="button_input(this);">
+				<input type="button" value="-2" onclick="button_input(this);">
+				<input type="button" value="-1" onclick="button_input(this);">
+				<input type="button" value="0" onclick="button_input(this);">
+				<input type="button" value="1" onclick="button_input(this);">
+				<input type="button" value="2" onclick="button_input(this);">
+				<input type="button" value="3" onclick="button_input(this);">
+				<input type="button" value="4" onclick="button_input(this);">
+			<td>
+				<span>Y:</span>
+				<input type="text" name="y" placeholder="Введите Y">
+				
+		<tr><td>
+				<span>R:</span>
+				<input type="radio" name="r" value="1" id="r1"><label for="r1">1</label>
+				<input type="radio" name="r" value="2" id="r2"><label for="r2">2</label>
+				<input type="radio" name="r" value="3" id="r3"><label for="r3">3</label>
+				<input type="radio" name="r" value="4" id="r4"><label for="r4">4</label>
+				<input type="radio" name="r" value="5" id="r5"><label for="r5">5</label>
+		<tr><td colspan="2">
+				<input type="submit" value="Рассчитать">
+		</table>
+	</form>
+</body>
+</html>
