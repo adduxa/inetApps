@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+ Университет ИТМО
+ Кафедра вычислительной техники
+ Программирование интернет-приложений
+
+ Лабораторная работа №7
+ Работа с Java Servlets, GlassFish
+ Вариант: 1104
+
+ Выполнил:
+ студент II курса факультета ПИиКТ
+ Дьяков Андрей Александрович, группа P3200
+
+ Преподаватель:
+ Гаврилов Антон Валерьевич
+
+ Санкт-Петербург, 2016г.
+-->
+
+<html>
+<head>
+    <title>Lab7</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        function checkForm() {
+            var r = document.getElementById("r").value;
+            var x = document.getElementById("x").value;
+            var y = document.getElementById("y").value;
+
+            if(!(isNumeric(r) && 2 <= r && r <= 5)) {
+                alert("Invalid R. Must be [2; 5] number");
+                return false;
+            }
+            if(!(isNumeric(x) && -5 <= x && x <= 3)) {
+                alert("Invalid X. Must be [-5; 3] number");
+                return false;
+            }
+            if(!(isNumeric(y) && -3 <= y && y <= 5)) {
+                alert("Invalid Y. Must be [-3; 5] number");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div id="header">
+    Дьяков Андрей Александрович, P3200<br>
+    Вариант: 1104
+</div>
+<form action="" method="post" onsubmit="return checkForm();">
+    <table id="form">
+        <tr>
+            <td colspan="2">
+                <img src="images/graph.png">
+        <tr>
+            <td>
+                <label for="x"><span>X:</span></label>
+                <select id="x" name="x">
+                    <option disabled selected>Выберите X:</option>
+                    <option value="-5">-5</option>
+                    <option value="-4">-4</option>
+                    <option value="-3">-3</option>
+                    <option value="-2">-2</option>
+                    <option value="-1">-1</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <br>
+            <td rowspan="2">
+                <label for="r"><span>R:</span></label>
+                <input type="text" id="r" name="r" placeholder="Введите R">
+        <tr>
+            <td>
+                <label for="y"><span>Y:</span></label>
+                <input type="text" id="y" name="y" placeholder="Введите Y">
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Рассчитать">
+    </table>
+</form>
+</body>
+</html>
