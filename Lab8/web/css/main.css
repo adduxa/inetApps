@@ -1,0 +1,41 @@
+﻿#header {
+	font: 14pt/16pt serif;
+	color: #000;
+	margin-bottom: 8px;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 3px;
+	margin: 0;
+	text-align: center;
+	border: 1px solid #000;
+}
+
+th {
+	
+}
+
+input {
+	margin: 3px;
+}
+
+input[readonly] {
+	background: #eee;
+}
+
+input[readonly]::-webkit-input-placeholder {
+	color: #555;
+}
+
+.field > span {
+	font-style: italic;
+}
+
+#graph {
+	cursor: crosshair;
+}
