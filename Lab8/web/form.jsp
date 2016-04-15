@@ -109,8 +109,8 @@ document.getElementById("graph").onclick = function imgClick(e) {
         return false;
     }
 
-    var x_click = e.offsetX == undefined ? e.layerX : e.offsetX;
-    var y_click = e.offsetY == undefined ? e.layerY : e.offsetY;
+    var x_click = e.offsetX == undefined ? e.layerX - 75 : e.offsetX;
+    var y_click = e.offsetY == undefined ? e.layerY - 64 : e.offsetY;
     x_click = (x_click - 108) / 80 * r;
     y_click = (110 - y_click) / 80 * r;
 
