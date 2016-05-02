@@ -53,7 +53,3 @@ input[readonly]::-webkit-input-placeholder {
 	position: absolute;
 	pointer-events: none;
 }
-
-.graph_point {
-	position: absolute;
-}
