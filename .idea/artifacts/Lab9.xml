@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Lab9">
+    <output-path>$PROJECT_DIR$/out/artifacts/Lab9</output-path>
+    <root id="archive" name="Lab9.war">
+      <element id="javaee-facet-resources" facet="Lab9/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Lab9" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Mojarra-2.2.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

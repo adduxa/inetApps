@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: adduxa
+  Date: 18.04.2016
+  Time: 17:17
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Lab9</title>
+    <h:outputStylesheet name="css/main.css"/>
+</h:head>
+
+<h:body>
+    <h:form>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <div id="graph_wrap">
+                        <div id="graph_points">
+                            <canvas id="graph_points_canvas" width="221px" height="221px"/>
+                        </div>
+                        <h:commandButton id="graph" class="graph" image="images/graph.png" action="#{matchBean.clickMatch}"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputLabel for="x" value="X:"/>
+                    <h:inputText id="x" value="#{matchBean.x}" required="true">
+                        <f:validateDoubleRange minimum="-5" maximum="5"/>
+                    </h:inputText>
+                </td>
+                <td rowspan="2">
+                    <h:outputLabel for="y" value="Y:"/>
+                    <h:inputText id="y" value="#{matchBean.y}" readonly="true" required="true">
+                        <f:validateDoubleRange minimum="-2" maximum="2"/>
+                    </h:inputText>
+                    <br/>
+                    <h:commandButton action="#{matchBean.setY(-2)}" value="-2"/>
+                    <h:commandButton action="#{matchBean.setY(-1.5)}" value="-1.5"/>
+                    <h:commandButton action="#{matchBean.setY(-1)}" value="-1"/>
+                    <h:commandButton action="#{matchBean.setY(-0.5)}" value="-0.5"/>
+                    <h:commandButton action="#{matchBean.setY(0)}" value="0"/>
+                    <h:commandButton action="#{matchBean.setY(0.5)}" value="0.5"/>
+                    <h:commandButton action="#{matchBean.setY(1)}" value="1"/>
+                    <h:commandButton action="#{matchBean.setY(1.5)}" value="1.5"/>
+                    <h:commandButton action="#{matchBean.setY(2)}" value="2"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputLabel for="r" value="R:"/>
+                    <h:selectOneRadio class="noborder" id="r" value="#{matchBean.r}" required="true">
+                        <f:selectItem itemValue="1" itemLabel="1"/>
+                        <f:selectItem itemValue="1.5" itemLabel="1.5"/>
+                        <f:selectItem itemValue="2" itemLabel="2"/>
+                        <f:selectItem itemValue="2.5" itemLabel="2.5"/>
+                        <f:selectItem itemValue="3" itemLabel="3"/>
+                        <f:validateDoubleRange minimum="1" maximum="3"/>
+                    </h:selectOneRadio>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+
+                    <h:commandButton action="#{matchBean.match}" value="Рассчитать"/>
+                </td>
+            </tr>
+        </table>
+    </h:form>
+    <h:message for="x" style="color: red;"/><br/>
+    <h:message for="y" style="color: red;"/><br/>
+    <h:message for="r" style="color: red;"/><br/>
+
+    <h:dataTable id="matches" value="#{matchBean.matches}" var="match">
+        <h:column>
+            <f:facet name="header">X</f:facet>
+            #{match.vertex.x}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Y</f:facet>
+            #{match.vertex.y}
+        </h:column>
+        <h:column>
+            <f:facet name="header">R</f:facet>
+            #{match.r}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Matched</f:facet>
+            #{match.matchedText}
+        </h:column>
+    </h:dataTable>
+    <br/>
+    <h:link outcome="main" value="Назад"/>
+    <h:outputScript>
+        //<![CDATA[
+        function addPoint(x, y, match) {
+            r = #{matchBean.r};
+            x = x * 80 / r + 113;
+            y = 113 - y * 80 / r;
+
+            var context = document.getElementById("graph_points_canvas").getContext('2d');
+            context.fillStyle = match ? "#0f0" : "#f00";
+            context.beginPath();
+            context.arc(x, y, 5, 0, Math.PI * 2);
+            context.closePath();
+            context.fill();
+        }
+
+        var table = document.getElementById("matches");
+        for (var i = 1; i < table.rows.length; i++) {
+            if (table.rows[i].cells[0].innerText != "") {
+                addPoint(table.rows[i].cells[0].innerText, table.rows[i].cells[1].innerText, table.rows[i].cells[3].innerText == "yes");
+            }
+        }
+        //]]>
+    </h:outputScript>
+</h:body>
+
+</html>

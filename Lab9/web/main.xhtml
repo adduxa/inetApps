@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Университет ИТМО
+ Кафедра вычислительной техники
+ Программирование интернет-приложений
+
+ Лабораторная работа №7
+ Работа с Java Servlets, GlassFish
+ Вариант: 1104
+
+ Выполнил:
+ студент II курса факультета ПИиКТ
+ Дьяков Андрей Александрович, группа P3200
+
+ Преподаватель:
+ Гаврилов Антон Валерьевич
+
+ Санкт-Петербург, 2016г.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Lab9</title>
+    <h:outputStylesheet name="css/main.css"/>
+</h:head>
+
+<h:body>
+    <h:outputText value="Дьяков Андрей Александрович, P3200"/><br/>
+    <h:outputText value="Вариант: 1466"/><br/>
+    <h:outputText id="clock"/><br/>
+    <h:link outcome="form" value="Далее"/>
+    <h:outputScript>
+        function update_clock() {
+            var clock = document.getElementById("clock");
+            clock.innerText = new Date();
+        }
+        update_clock();
+        setInterval(update_clock, 6000);
+    </h:outputScript>
+</h:body>
+
+</html>
