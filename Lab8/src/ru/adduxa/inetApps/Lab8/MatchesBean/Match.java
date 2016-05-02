@@ -2,9 +2,6 @@ package ru.adduxa.inetApps.Lab8.MatchesBean;
 
 import ru.adduxa.inetApps.Lab8.Form.Vertex;
 
-/**
- * Created by adduxa on 13.04.2016.
- */
 public class Match {
 	private Vertex vertex;
 	private float R;
